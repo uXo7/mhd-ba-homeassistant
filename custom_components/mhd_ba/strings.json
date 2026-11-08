@@ -10,13 +10,17 @@
           "max_departures": "Departures to keep"
         },
         "data_description": {
-          "stop_id": "The `st` parameter of https://imhd.sk/ba/online-zastavkova-tabula?st=…",
+          "stop_id": "The `st` parameter of {board_url}",
           "gtfs_stop": "Used for the offline timetable and platform letters."
         }
       }
     },
-    "error": {"invalid_stop": "Enter a number or an imhd.sk URL containing st=…"},
-    "abort": {"already_configured": "This stop is already configured."}
+    "error": {
+      "invalid_stop": "Enter a number or an imhd.sk URL containing st=…"
+    },
+    "abort": {
+      "already_configured": "This stop is already configured."
+    }
   },
   "options": {
     "step": {
@@ -29,7 +33,15 @@
     }
   },
   "entity": {
-    "sensor": {"next_departure": {"name": "Next departure"}},
-    "binary_sensor": {"realtime": {"name": "Realtime"}}
+    "sensor": {
+      "next_departure": {
+        "name": "Next departure"
+      }
+    },
+    "binary_sensor": {
+      "realtime": {
+        "name": "Realtime"
+      }
+    }
   }
 }

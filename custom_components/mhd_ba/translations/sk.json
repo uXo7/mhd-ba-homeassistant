@@ -10,7 +10,7 @@
           "max_departures": "Počet odchodov"
         },
         "data_description": {
-          "stop_id": "Parameter `st` z https://imhd.sk/ba/online-zastavkova-tabula?st=…",
+          "stop_id": "Parameter `st` z {board_url}",
           "gtfs_stop": "Použije sa pre offline cestovný poriadok a písmená nástupíšť."
         }
       }

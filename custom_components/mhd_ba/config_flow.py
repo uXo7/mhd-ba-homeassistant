@@ -22,6 +22,7 @@ from .const import (
 )
 from .gtfs import list_stop_names
 
+BOARD_URL = "https://imhd.sk/ba/online-zastavkova-tabula?st=…"
 _ST_RE = re.compile(r"[?&;]st=(\d+)")
 
 
@@ -98,7 +99,12 @@ class MhdConfigFlow(ConfigFlow, domain=DOMAIN):
                 vol.Optional(CONF_MAX_DEPARTURES, default=DEFAULT_MAX_DEPARTURES): _max_selector(),
             }
         )
-        return self.async_show_form(step_id="user", data_schema=schema, errors=errors)
+        return self.async_show_form(
+            step_id="user",
+            data_schema=schema,
+            errors=errors,
+            description_placeholders={"board_url": BOARD_URL},
+        )
 
     @staticmethod
     @callback
