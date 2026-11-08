@@ -52,7 +52,8 @@ class Departure:
             "scheduled": self.scheduled.isoformat() if self.scheduled else None,
             "delay": self.delay,
             "realtime": self.realtime,
-            "platform": self.platform_label or self.platform,
+            "platform": self.platform_label,  # letter; None when unknown
+            "platform_id": self.platform,
             "source": self.source,
             "vehicle": self.vehicle,
             "stuck": self.stuck,

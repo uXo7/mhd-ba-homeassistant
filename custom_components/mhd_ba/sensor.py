@@ -85,7 +85,7 @@ class NextDepartureSensor(SensorEntity):
             "source": nxt.source if nxt else None,
             "line": nxt.line if nxt else None,
             "destination": nxt.destination if nxt else None,
-            "platform": (nxt.platform_label or nxt.platform) if nxt else None,
+            "platform": nxt.platform_label if nxt else None,
             "delay": nxt.delay if nxt else None,
             "realtime": nxt.realtime if nxt else None,
             "departures": [d.as_dict() for d in deps],

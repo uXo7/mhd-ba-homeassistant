@@ -101,6 +101,7 @@ async def test_entities(hass: HomeAssistant, freezer: FrozenDateTimeFactory, fee
     assert state.attributes["source"] == "imhd"
     assert state.attributes["line"] == deps[0]["line"]
     assert deps[0]["platform"] in {"A", "C"}
+    assert deps[0]["platform_id"] in {"798", "800"}
     assert datetime.fromisoformat(state.state) == datetime.fromisoformat(deps[0]["time"])
     rt = hass.states.get("binary_sensor.slavicie_realtime")
     assert rt.state == "on"

@@ -58,6 +58,9 @@ def test_unmatched_realtime_kept(index):
     assert foreign, "recorded board has a non-DPB line"
     deps = b.departures(now, 200)
     assert foreign <= {d.line for d in deps if d.source == "imhd"}
+    # their platforms are not in GTFS: no letter rather than an internal id
+    unlabeled = [d.as_dict() for d in deps if d.line in foreign and not d.platform_label]
+    assert all(x["platform"] is None and x["platform_id"] for x in unlabeled)
 
 
 def test_fallback_to_timetable(index):

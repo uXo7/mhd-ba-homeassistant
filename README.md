@@ -51,7 +51,8 @@ time: "2026-11-08T20:02:45+00:00"      # expected (realtime) or scheduled
 scheduled: "2026-11-08T20:03:00+00:00"
 delay: 0              # minutes; null = no realtime for this trip
 realtime: true        # vehicle tracked by imhd.sk
-platform: A
+platform: A           # null when the platform has no letter (e.g. regional lines)
+platform_id: "798"    # imhd.sk or GTFS platform id
 source: imhd          # imhd | gtfs
 vehicle: "1:3503"
 vehicle_type: SOR NS 18
@@ -71,7 +72,7 @@ type: markdown
 content: >-
   {% for d in state_attr('sensor.zoo_next_departure', 'departures')[:6] %}
   {%- set m = ((as_datetime(d.time) - now()).total_seconds() / 60) | round(0, 'floor') | int %}
-  **{{ d.line }}** {{ d.destination }} · {{ d.platform }} ·
+  **{{ d.line }}** {{ d.destination }} · {{ d.platform or '–' }} ·
   {{ as_timestamp(d.time) | timestamp_custom('%H:%M') }}
   ({{ 'teraz' if m < 1 else m ~ ' min' }}){{ ' +' ~ d.delay if d.delay }}
   {% endfor %}
