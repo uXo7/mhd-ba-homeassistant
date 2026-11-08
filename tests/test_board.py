@@ -51,10 +51,13 @@ def test_delayed_trip_replaces_timetable(index):
 
 
 def test_unmatched_realtime_kept(index):
-    # Line 269 (regional) is on the imhd.sk board but not in the DPB feed.
+    # Regional IDS BK lines are on the imhd.sk board but not in the DPB feed.
     b, now = _board(254, index)
-    deps = b.departures(now, 40)
-    assert any(d.line == "269" and d.source == "imhd" for d in deps)
+    gtfs_lines = {index.trips[st.trip_id].line for st in index.stop_times["patronka"]}
+    foreign = {d.line for d in b.client.board.departures if d.time >= now} - gtfs_lines
+    assert foreign, "recorded board has a non-DPB line"
+    deps = b.departures(now, 200)
+    assert foreign <= {d.line for d in deps if d.source == "imhd"}
 
 
 def test_fallback_to_timetable(index):
