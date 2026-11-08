@@ -1,0 +1,12 @@
+{
+  "domain": "mhd_ba",
+  "name": "Bratislava MHD",
+  "codeowners": ["@uXo7"],
+  "config_flow": true,
+  "documentation": "https://github.com/uXo7/mhd-ba-homeassistant",
+  "integration_type": "service",
+  "iot_class": "cloud_push",
+  "issue_tracker": "https://github.com/uXo7/mhd-ba-homeassistant/issues",
+  "requirements": ["python-socketio[asyncio_client]>=5.11.0"],
+  "version": "0.1.0"
+}

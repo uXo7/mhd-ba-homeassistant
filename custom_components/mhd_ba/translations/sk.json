@@ -1,0 +1,47 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Zastávka MHD Bratislava",
+        "data": {
+          "stop_id": "ID zastávky imhd.sk alebo odkaz na tabuľu",
+          "gtfs_stop": "Názov zastávky v cestovnom poriadku DPB",
+          "name": "Názov",
+          "max_departures": "Počet odchodov"
+        },
+        "data_description": {
+          "stop_id": "Parameter `st` z https://imhd.sk/ba/online-zastavkova-tabula?st=…",
+          "gtfs_stop": "Použije sa pre offline cestovný poriadok a písmená nástupíšť."
+        }
+      }
+    },
+    "error": {
+      "invalid_stop": "Zadaj číslo alebo odkaz imhd.sk obsahujúci st=…"
+    },
+    "abort": {
+      "already_configured": "Táto zastávka už je nastavená."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "data": {
+          "gtfs_stop": "Názov zastávky v cestovnom poriadku DPB",
+          "max_departures": "Počet odchodov"
+        }
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "next_departure": {
+        "name": "Najbližší odchod"
+      }
+    },
+    "binary_sensor": {
+      "realtime": {
+        "name": "Realtime"
+      }
+    }
+  }
+}

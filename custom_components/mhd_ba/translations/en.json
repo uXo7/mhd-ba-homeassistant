@@ -1,0 +1,35 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Bratislava MHD stop",
+        "data": {
+          "stop_id": "imhd.sk stop ID or board URL",
+          "gtfs_stop": "Stop name in the DPB timetable",
+          "name": "Name",
+          "max_departures": "Departures to keep"
+        },
+        "data_description": {
+          "stop_id": "The `st` parameter of https://imhd.sk/ba/online-zastavkova-tabula?st=…",
+          "gtfs_stop": "Used for the offline timetable and platform letters."
+        }
+      }
+    },
+    "error": {"invalid_stop": "Enter a number or an imhd.sk URL containing st=…"},
+    "abort": {"already_configured": "This stop is already configured."}
+  },
+  "options": {
+    "step": {
+      "init": {
+        "data": {
+          "gtfs_stop": "Stop name in the DPB timetable",
+          "max_departures": "Departures to keep"
+        }
+      }
+    }
+  },
+  "entity": {
+    "sensor": {"next_departure": {"name": "Next departure"}},
+    "binary_sensor": {"realtime": {"name": "Realtime"}}
+  }
+}
